@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Stacie Koslovsky">
+
+<title>PEP Database Details: administrative schema</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="PEP_DatabaseDetails_files/libs/clipboard/clipboard.min.js"></script>
+<script src="PEP_DatabaseDetails_files/libs/quarto-html/quarto.js"></script>
+<script src="PEP_DatabaseDetails_files/libs/quarto-html/popper.min.js"></script>
+<script src="PEP_DatabaseDetails_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="PEP_DatabaseDetails_files/libs/quarto-html/anchor.min.js"></script>
+<link href="PEP_DatabaseDetails_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="PEP_DatabaseDetails_files/libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="PEP_DatabaseDetails_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="PEP_DatabaseDetails_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="PEP_DatabaseDetails_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
+<link href="PEP_DatabaseDetails_files/libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
+<script src="PEP_DatabaseDetails_files/libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<script src="PEP_DatabaseDetails_files/libs/viz-1.8.2/viz.js"></script>
+<link href="PEP_DatabaseDetails_files/libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet">
+<script src="PEP_DatabaseDetails_files/libs/grViz-binding-1.0.11/grViz.js"></script>
+
+
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#administrative-schema" id="toc-administrative-schema" class="nav-link active" data-scroll-target="#administrative-schema">Administrative Schema</a></li>
+  <li><a href="#database-diagram" id="toc-database-diagram" class="nav-link" data-scroll-target="#database-diagram">Database Diagram</a></li>
+  <li><a href="#table-descriptions" id="toc-table-descriptions" class="nav-link" data-scroll-target="#table-descriptions">Table Descriptions</a></li>
+  <li><a href="#field-descriptions-by-table" id="toc-field-descriptions-by-table" class="nav-link" data-scroll-target="#field-descriptions-by-table">Field Descriptions by Table</a>
+  <ul class="collapse">
+  <li><a href="#lku_project_link_type" id="toc-lku_project_link_type" class="nav-link" data-scroll-target="#lku_project_link_type">lku_project_link_type</a></li>
+  <li><a href="#tbl_project_roles" id="toc-tbl_project_roles" class="nav-link" data-scroll-target="#tbl_project_roles">tbl_project_roles</a></li>
+  </ul></li>
+  </ul>
+</nav>
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">PEP Database Details: administrative schema</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Stacie Koslovsky </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="administrative-schema" class="level2">
+<h2 class="anchored" data-anchor-id="administrative-schema">Administrative Schema</h2>
+<p>The administrative schema in the pep PostgreSQL database houses the tables that are the foundation for the PEP Dashboard.</p>
+</section>
+<section id="database-diagram" class="level2">
+<h2 class="anchored" data-anchor-id="database-diagram">Database Diagram</h2>
+<p>The figure below depicts the tables in the administrative schema and their relationships</p>
+<div class="cell">
+<div class="cell-output-display">
+
+<div class="grViz html-widget html-fill-item" id="htmlwidget-182fa52a33d99813818f" style="width:100%;height:541px;"></div>
+<script type="application/json" data-for="htmlwidget-182fa52a33d99813818f">{"x":{"diagram":"#data_model\ndigraph {\ngraph [rankdir=TB tooltip=\"Database Diagram: administrative schema\" ]\n\nnode [margin=0 fontcolor = \"#444444\" ]\n\nedge [color = \"#555555\", arrowsize = 1, ]\n\npack=true\npackmode= \"node\"\n\n  \"lku_project_link_type\" [id = \"lku_project_link_type\", label = <<TABLE ALIGN=\"LEFT\" BORDER=\"1\" CELLBORDER=\"0\" CELLSPACING=\"0\" COLOR=\"#AA6E00AA\">\n    <TR>\n      <TD COLSPAN=\"1\" BGCOLOR=\"#FFA500FF\" BORDER=\"0\"><FONT COLOR=\"#000000\" POINT-SIZE=\"18\">lku_project_link_type<\/FONT>\n<\/TD>\n    <\/TR>\n    <TR>\n      <TD COLSPAN=\"1\" BGCOLOR=\"#FFDFA5FF\" BORDER=\"0\" COLOR=\"#000000\"><FONT COLSPAN=\"1\" BGCOLOR=\"#FFDFA5FF\" BORDER=\"0\" COLOR=\"#000000\" POINT-SIZE=\"12\">Descriptions for values in the project_link_type_lku field<\/FONT>\n<\/TD>\n    <\/TR>\n    <TR>\n      <TD ALIGN=\"LEFT\" BGCOLOR=\"#FFEDCCFF\" PORT=\"project_link_type_lku\"><FONT POINT-SIZE=\"15\"><U>project_link_type_lku<\/U><\/FONT><\/TD>\n    <\/TR>\n    <TR>\n      <TD ALIGN=\"LEFT\" BGCOLOR=\"#FFEDCCFF\"><FONT POINT-SIZE=\"15\">project_link_type<\/FONT><\/TD>\n    <\/TR>\n  <\/TABLE>>, shape = \"plaintext\"] \n\n  \"lku_project_status\" [id = \"lku_project_status\", label = <<TABLE ALIGN=\"LEFT\" BORDER=\"1\" CELLBORDER=\"0\" CELLSPACING=\"0\" COLOR=\"#AA6E00AA\">\n    <TR>\n      <TD COLSPAN=\"1\" BGCOLOR=\"#FFA500FF\" BORDER=\"0\"><FONT COLOR=\"#000000\" POINT-SIZE=\"18\">lku_project_status<\/FONT>\n<\/TD>\n    <\/TR>\n    <TR>\n      <TD COLSPAN=\"1\" BGCOLOR=\"#FFDFA5FF\" BORDER=\"0\" COLOR=\"#000000\"><FONT COLSPAN=\"1\" BGCOLOR=\"#FFDFA5FF\" BORDER=\"0\" COLOR=\"#000000\" POINT-SIZE=\"12\">Descriptions for values in the project_status_lku field<\/FONT>\n<\/TD>\n    <\/TR>\n    <TR>\n      <TD ALIGN=\"LEFT\" BGCOLOR=\"#FFEDCCFF\" PORT=\"project_status_lku\"><FONT POINT-SIZE=\"15\"><U>project_status_lku<\/U><\/FONT><\/TD>\n    <\/TR>\n    <TR>\n      <TD ALIGN=\"LEFT\" BGCOLOR=\"#FFEDCCFF\"><FONT POINT-SIZE=\"15\">project_status<\/FONT><\/TD>\n    <\/TR>\n  <\/TABLE>>, shape = \"plaintext\"] \n\n  \"lku_role\" [id = \"lku_role\", label = <<TABLE ALIGN=\"LEFT\" BORDER=\"1\" CELLBORDER=\"0\" CELLSPACING=\"0\" COLOR=\"#AA6E00AA\">\n    <TR>\n      <TD COLSPAN=\"1\" BGCOLOR=\"#FFA500FF\" BORDER=\"0\"><FONT COLOR=\"#000000\" POINT-SIZE=\"18\">lku_role<\/FONT>\n<\/TD>\n    <\/TR>\n    <TR>\n      <TD COLSPAN=\"1\" BGCOLOR=\"#FFDFA5FF\" BORDER=\"0\" COLOR=\"#000000\"><FONT COLSPAN=\"1\" BGCOLOR=\"#FFDFA5FF\" BORDER=\"0\" COLOR=\"#000000\" POINT-SIZE=\"12\">Descriptions for values in the role_lku field<\/FONT>\n<\/TD>\n    <\/TR>\n    <TR>\n      <TD ALIGN=\"LEFT\" BGCOLOR=\"#FFEDCCFF\" PORT=\"role_lku\"><FONT POINT-SIZE=\"15\"><U>role_lku<\/U><\/FONT><\/TD>\n    <\/TR>\n    <TR>\n      <TD ALIGN=\"LEFT\" BGCOLOR=\"#FFEDCCFF\"><FONT POINT-SIZE=\"15\">role<\/FONT><\/TD>\n    <\/TR>\n    <TR>\n      <TD ALIGN=\"LEFT\" BGCOLOR=\"#FFEDCCFF\"><FONT POINT-SIZE=\"15\">role_description<\/FONT><\/TD>\n    <\/TR>\n    <TR>\n      <TD ALIGN=\"LEFT\" BGCOLOR=\"#FFEDCCFF\"><FONT POINT-SIZE=\"15\">performance_plan_element<\/FONT><\/TD>\n    <\/TR>\n  <\/TABLE>>, shape = \"plaintext\"] \n\n  \"lku_role_status\" [id = \"lku_role_status\", label = <<TABLE ALIGN=\"LEFT\" BORDER=\"1\" CELLBORDER=\"0\" CELLSPACING=\"0\" COLOR=\"#AA6E00AA\">\n    <TR>\n      <TD COLSPAN=\"1\" BGCOLOR=\"#FFA500FF\" BORDER=\"0\"><FONT COLOR=\"#000000\" POINT-SIZE=\"18\">lku_role_status<\/FONT>\n<\/TD>\n    <\/TR>\n    <TR>\n      <TD COLSPAN=\"1\" BGCOLOR=\"#FFDFA5FF\" BORDER=\"0\" COLOR=\"#000000\"><FONT COLSPAN=\"1\" BGCOLOR=\"#FFDFA5FF\" BORDER=\"0\" COLOR=\"#000000\" POINT-SIZE=\"12\">Descriptions for values in the role_status_lku field<\/FONT>\n<\/TD>\n    <\/TR>\n    <TR>\n      <TD ALIGN=\"LEFT\" BGCOLOR=\"#FFEDCCFF\" PORT=\"role_status_lku\"><FONT POINT-SIZE=\"15\"><U>role_status_lku<\/U><\/FONT><\/TD>\n    <\/TR>\n    <TR>\n      <TD ALIGN=\"LEFT\" BGCOLOR=\"#FFEDCCFF\"><FONT POINT-SIZE=\"15\">role_status<\/FONT><\/TD>\n    <\/TR>\n  <\/TABLE>>, shape = \"plaintext\"] \n\n  \"lku_staff\" [id = \"lku_staff\", label = <<TABLE ALIGN=\"LEFT\" BORDER=\"1\" CELLBORDER=\"0\" CELLSPACING=\"0\" COLOR=\"#AA6E00AA\">\n    <TR>\n      <TD COLSPAN=\"1\" BGCOLOR=\"#FFA500FF\" BORDER=\"0\"><FONT COLOR=\"#000000\" POINT-SIZE=\"18\">lku_staff<\/FONT>\n<\/TD>\n    <\/TR>\n    <TR>\n      <TD COLSPAN=\"1\" BGCOLOR=\"#FFDFA5FF\" BORDER=\"0\" COLOR=\"#000000\"><FONT COLSPAN=\"1\" BGCOLOR=\"#FFDFA5FF\" BORDER=\"0\" COLOR=\"#000000\" POINT-SIZE=\"12\">Look-up table containing PEP staff<\/FONT>\n<\/TD>\n    <\/TR>\n    <TR>\n      <TD ALIGN=\"LEFT\" BGCOLOR=\"#FFEDCCFF\" PORT=\"staff_id\"><FONT POINT-SIZE=\"15\"><U>staff_id<\/U><\/FONT><\/TD>\n    <\/TR>\n    <TR>\n      <TD ALIGN=\"LEFT\" BGCOLOR=\"#FFEDCCFF\"><FONT POINT-SIZE=\"15\">first_name<\/FONT><\/TD>\n    <\/TR>\n    <TR>\n      <TD ALIGN=\"LEFT\" BGCOLOR=\"#FFEDCCFF\"><FONT POINT-SIZE=\"15\">last_name<\/FONT><\/TD>\n    <\/TR>\n    <TR>\n      <TD ALIGN=\"LEFT\" BGCOLOR=\"#FFEDCCFF\"><FONT POINT-SIZE=\"15\">initials<\/FONT><\/TD>\n    <\/TR>\n    <TR>\n      <TD ALIGN=\"LEFT\" BGCOLOR=\"#FFEDCCFF\"><FONT POINT-SIZE=\"15\">active_user<\/FONT><\/TD>\n    <\/TR>\n    <TR>\n      <TD ALIGN=\"LEFT\" BGCOLOR=\"#FFEDCCFF\"><FONT POINT-SIZE=\"15\">current_program<\/FONT><\/TD>\n    <\/TR>\n    <TR>\n      <TD ALIGN=\"LEFT\" BGCOLOR=\"#FFEDCCFF\"><FONT POINT-SIZE=\"15\">email_address<\/FONT><\/TD>\n    <\/TR>\n  <\/TABLE>>, shape = \"plaintext\"] \n\n  \"lku_work_intensity\" [id = \"lku_work_intensity\", label = <<TABLE ALIGN=\"LEFT\" BORDER=\"1\" CELLBORDER=\"0\" CELLSPACING=\"0\" COLOR=\"#AA6E00AA\">\n    <TR>\n      <TD COLSPAN=\"1\" BGCOLOR=\"#FFA500FF\" BORDER=\"0\"><FONT COLOR=\"#000000\" POINT-SIZE=\"18\">lku_work_intensity<\/FONT>\n<\/TD>\n    <\/TR>\n    <TR>\n      <TD COLSPAN=\"1\" BGCOLOR=\"#FFDFA5FF\" BORDER=\"0\" COLOR=\"#000000\"><FONT COLSPAN=\"1\" BGCOLOR=\"#FFDFA5FF\" BORDER=\"0\" COLOR=\"#000000\" POINT-SIZE=\"12\">Descriptions for values in the work_intensity_lku field<\/FONT>\n<\/TD>\n    <\/TR>\n    <TR>\n      <TD ALIGN=\"LEFT\" BGCOLOR=\"#FFEDCCFF\" PORT=\"work_intensity_lku\"><FONT POINT-SIZE=\"15\"><U>work_intensity_lku<\/U><\/FONT><\/TD>\n    <\/TR>\n    <TR>\n      <TD ALIGN=\"LEFT\" BGCOLOR=\"#FFEDCCFF\"><FONT POINT-SIZE=\"15\">work_intensity<\/FONT><\/TD>\n    <\/TR>\n    <TR>\n      <TD ALIGN=\"LEFT\" BGCOLOR=\"#FFEDCCFF\"><FONT POINT-SIZE=\"15\">work_intensity_desc<\/FONT><\/TD>\n    <\/TR>\n  <\/TABLE>>, shape = \"plaintext\"] \n\n  \"tbl_activity_plan\" [id = \"tbl_activity_plan\", label = <<TABLE ALIGN=\"LEFT\" BORDER=\"1\" CELLBORDER=\"0\" CELLSPACING=\"0\" COLOR=\"#004200AA\">\n    <TR>\n      <TD COLSPAN=\"1\" BGCOLOR=\"#006400FF\" BORDER=\"0\"><FONT COLOR=\"#FFFFFF\" POINT-SIZE=\"18\">tbl_activity_plan<\/FONT>\n<\/TD>\n    <\/TR>\n    <TR>\n      <TD COLSPAN=\"1\" BGCOLOR=\"#A5C8A5FF\" BORDER=\"0\" COLOR=\"#000000\"><FONT COLSPAN=\"1\" BGCOLOR=\"#A5C8A5FF\" BORDER=\"0\" COLOR=\"#000000\" POINT-SIZE=\"12\">PEP Activity Plans<\/FONT>\n<\/TD>\n    <\/TR>\n    <TR>\n      <TD ALIGN=\"LEFT\" BGCOLOR=\"#CCE0CCFF\" PORT=\"id\"><FONT POINT-SIZE=\"15\"><U>id<\/U><\/FONT><\/TD>\n    <\/TR>\n    <TR>\n      <TD ALIGN=\"LEFT\" BGCOLOR=\"#CCE0CCFF\"><FONT POINT-SIZE=\"15\">activity_plan_number<\/FONT><\/TD>\n    <\/TR>\n    <TR>\n      <TD ALIGN=\"LEFT\" BGCOLOR=\"#CCE0CCFF\"><FONT POINT-SIZE=\"15\">activity_plan_name<\/FONT><\/TD>\n    <\/TR>\n    <TR>\n      <TD ALIGN=\"LEFT\" BGCOLOR=\"#CCE0CCFF\"><FONT POINT-SIZE=\"15\">last_fiscal_year<\/FONT><\/TD>\n    <\/TR>\n    <TR>\n      <TD ALIGN=\"LEFT\" BGCOLOR=\"#CCE0CCFF\" PORT=\"activity_plan_lead_id\"><FONT POINT-SIZE=\"15\"><I>activity_plan_lead_id<\/I><\/FONT><\/TD>\n    <\/TR>\n    <TR>\n      <TD ALIGN=\"LEFT\" BGCOLOR=\"#CCE0CCFF\"><FONT POINT-SIZE=\"15\">activity_plan_nickname<\/FONT><\/TD>\n    <\/TR>\n  <\/TABLE>>, shape = \"plaintext\"] \n\n  \"tbl_component\" [id = \"tbl_component\", label = <<TABLE ALIGN=\"LEFT\" BORDER=\"1\" CELLBORDER=\"0\" CELLSPACING=\"0\" COLOR=\"#004200AA\">\n    <TR>\n      <TD COLSPAN=\"1\" BGCOLOR=\"#006400FF\" BORDER=\"0\"><FONT COLOR=\"#FFFFFF\" POINT-SIZE=\"18\">tbl_component<\/FONT>\n<\/TD>\n    <\/TR>\n    <TR>\n      <TD COLSPAN=\"1\" BGCOLOR=\"#A5C8A5FF\" BORDER=\"0\" COLOR=\"#000000\"><FONT COLSPAN=\"1\" BGCOLOR=\"#A5C8A5FF\" BORDER=\"0\" COLOR=\"#000000\" POINT-SIZE=\"12\">Components associated with PEP Activity Plans<\/FONT>\n<\/TD>\n    <\/TR>\n    <TR>\n      <TD ALIGN=\"LEFT\" BGCOLOR=\"#CCE0CCFF\" PORT=\"id\"><FONT POINT-SIZE=\"15\"><U>id<\/U><\/FONT><\/TD>\n    <\/TR>\n    <TR>\n      <TD ALIGN=\"LEFT\" BGCOLOR=\"#CCE0CCFF\"><FONT POINT-SIZE=\"15\">component_name<\/FONT><\/TD>\n    <\/TR>\n    <TR>\n      <TD ALIGN=\"LEFT\" BGCOLOR=\"#CCE0CCFF\"><FONT POINT-SIZE=\"15\">component_lead_id<\/FONT><\/TD>\n    <\/TR>\n    <TR>\n      <TD ALIGN=\"LEFT\" BGCOLOR=\"#CCE0CCFF\" PORT=\"activity_plan_id\"><FONT POINT-SIZE=\"15\"><I>activity_plan_id<\/I><\/FONT><\/TD>\n    <\/TR>\n  <\/TABLE>>, shape = \"plaintext\"] \n\n  \"tbl_project\" [id = \"tbl_project\", label = <<TABLE ALIGN=\"LEFT\" BORDER=\"1\" CELLBORDER=\"0\" CELLSPACING=\"0\" COLOR=\"#004200AA\">\n    <TR>\n      <TD COLSPAN=\"1\" BGCOLOR=\"#006400FF\" BORDER=\"0\"><FONT COLOR=\"#FFFFFF\" POINT-SIZE=\"18\">tbl_project<\/FONT>\n<\/TD>\n    <\/TR>\n    <TR>\n      <TD COLSPAN=\"1\" BGCOLOR=\"#A5C8A5FF\" BORDER=\"0\" COLOR=\"#000000\"><FONT COLSPAN=\"1\" BGCOLOR=\"#A5C8A5FF\" BORDER=\"0\" COLOR=\"#000000\" POINT-SIZE=\"12\">Projects within PEP Activity Plans and components<\/FONT>\n<\/TD>\n    <\/TR>\n    <TR>\n      <TD ALIGN=\"LEFT\" BGCOLOR=\"#CCE0CCFF\" PORT=\"id\"><FONT POINT-SIZE=\"15\"><U>id<\/U><\/FONT><\/TD>\n    <\/TR>\n    <TR>\n      <TD ALIGN=\"LEFT\" BGCOLOR=\"#CCE0CCFF\" PORT=\"component_id\"><FONT POINT-SIZE=\"15\"><I>component_id<\/I><\/FONT><\/TD>\n    <\/TR>\n    <TR>\n      <TD ALIGN=\"LEFT\" BGCOLOR=\"#CCE0CCFF\"><FONT POINT-SIZE=\"15\">project_name<\/FONT><\/TD>\n    <\/TR>\n    <TR>\n      <TD ALIGN=\"LEFT\" BGCOLOR=\"#CCE0CCFF\"><FONT POINT-SIZE=\"15\">executive_summary<\/FONT><\/TD>\n    <\/TR>\n    <TR>\n      <TD ALIGN=\"LEFT\" BGCOLOR=\"#CCE0CCFF\"><FONT POINT-SIZE=\"15\">files_lan<\/FONT><\/TD>\n    <\/TR>\n    <TR>\n      <TD ALIGN=\"LEFT\" BGCOLOR=\"#CCE0CCFF\"><FONT POINT-SIZE=\"15\">files_google_drive<\/FONT><\/TD>\n    <\/TR>\n    <TR>\n      <TD ALIGN=\"LEFT\" BGCOLOR=\"#CCE0CCFF\"><FONT POINT-SIZE=\"15\">database_schema<\/FONT><\/TD>\n    <\/TR>\n    <TR>\n      <TD ALIGN=\"LEFT\" BGCOLOR=\"#CCE0CCFF\"><FONT POINT-SIZE=\"15\">files_github<\/FONT><\/TD>\n    <\/TR>\n    <TR>\n      <TD ALIGN=\"LEFT\" BGCOLOR=\"#CCE0CCFF\"><FONT POINT-SIZE=\"15\">database_use_details<\/FONT><\/TD>\n    <\/TR>\n    <TR>\n      <TD ALIGN=\"LEFT\" BGCOLOR=\"#CCE0CCFF\" PORT=\"project_status_lku\"><FONT POINT-SIZE=\"15\"><I>project_status_lku<\/I><\/FONT><\/TD>\n    <\/TR>\n    <TR>\n      <TD ALIGN=\"LEFT\" BGCOLOR=\"#CCE0CCFF\"><FONT POINT-SIZE=\"15\">project_pp_element<\/FONT><\/TD>\n    <\/TR>\n  <\/TABLE>>, shape = \"plaintext\"] \n\n  \"tbl_project_history\" [id = \"tbl_project_history\", label = <<TABLE ALIGN=\"LEFT\" BORDER=\"1\" CELLBORDER=\"0\" CELLSPACING=\"0\" COLOR=\"#004200AA\">\n    <TR>\n      <TD COLSPAN=\"1\" BGCOLOR=\"#006400FF\" BORDER=\"0\"><FONT COLOR=\"#FFFFFF\" POINT-SIZE=\"18\">tbl_project_history<\/FONT>\n<\/TD>\n    <\/TR>\n    <TR>\n      <TD COLSPAN=\"1\" BGCOLOR=\"#A5C8A5FF\" BORDER=\"0\" COLOR=\"#000000\"><FONT COLSPAN=\"1\" BGCOLOR=\"#A5C8A5FF\" BORDER=\"0\" COLOR=\"#000000\" POINT-SIZE=\"12\">Log of user-detailed actions within a project<\/FONT>\n<\/TD>\n    <\/TR>\n    <TR>\n      <TD ALIGN=\"LEFT\" BGCOLOR=\"#CCE0CCFF\" PORT=\"id\"><FONT POINT-SIZE=\"15\"><U>id<\/U><\/FONT><\/TD>\n    <\/TR>\n    <TR>\n      <TD ALIGN=\"LEFT\" BGCOLOR=\"#CCE0CCFF\" PORT=\"project_id\"><FONT POINT-SIZE=\"15\"><I>project_id<\/I><\/FONT><\/TD>\n    <\/TR>\n    <TR>\n      <TD ALIGN=\"LEFT\" BGCOLOR=\"#CCE0CCFF\"><FONT POINT-SIZE=\"15\">history_date<\/FONT><\/TD>\n    <\/TR>\n    <TR>\n      <TD ALIGN=\"LEFT\" BGCOLOR=\"#CCE0CCFF\"><FONT POINT-SIZE=\"15\">history_log<\/FONT><\/TD>\n    <\/TR>\n  <\/TABLE>>, shape = \"plaintext\"] \n\n  \"tbl_project_links\" [id = \"tbl_project_links\", label = <<TABLE ALIGN=\"LEFT\" BORDER=\"1\" CELLBORDER=\"0\" CELLSPACING=\"0\" COLOR=\"#004200AA\">\n    <TR>\n      <TD COLSPAN=\"1\" BGCOLOR=\"#006400FF\" BORDER=\"0\"><FONT COLOR=\"#FFFFFF\" POINT-SIZE=\"18\">tbl_project_links<\/FONT>\n<\/TD>\n    <\/TR>\n    <TR>\n      <TD COLSPAN=\"1\" BGCOLOR=\"#A5C8A5FF\" BORDER=\"0\" COLOR=\"#000000\"><FONT COLSPAN=\"1\" BGCOLOR=\"#A5C8A5FF\" BORDER=\"0\" COLOR=\"#000000\" POINT-SIZE=\"12\">Relevant links for a project<\/FONT>\n<\/TD>\n    <\/TR>\n    <TR>\n      <TD ALIGN=\"LEFT\" BGCOLOR=\"#CCE0CCFF\" PORT=\"id\"><FONT POINT-SIZE=\"15\"><U>id<\/U><\/FONT><\/TD>\n    <\/TR>\n    <TR>\n      <TD ALIGN=\"LEFT\" BGCOLOR=\"#CCE0CCFF\" PORT=\"project_id\"><FONT POINT-SIZE=\"15\"><I>project_id<\/I><\/FONT><\/TD>\n    <\/TR>\n    <TR>\n      <TD ALIGN=\"LEFT\" BGCOLOR=\"#CCE0CCFF\" PORT=\"project_link_type_lku\"><FONT POINT-SIZE=\"15\"><I>project_link_type_lku<\/I><\/FONT><\/TD>\n    <\/TR>\n    <TR>\n      <TD ALIGN=\"LEFT\" BGCOLOR=\"#CCE0CCFF\"><FONT POINT-SIZE=\"15\">project_link_description<\/FONT><\/TD>\n    <\/TR>\n    <TR>\n      <TD ALIGN=\"LEFT\" BGCOLOR=\"#CCE0CCFF\"><FONT POINT-SIZE=\"15\">project_link<\/FONT><\/TD>\n    <\/TR>\n  <\/TABLE>>, shape = \"plaintext\"] \n\n  \"tbl_project_roles\" [id = \"tbl_project_roles\", label = <<TABLE ALIGN=\"LEFT\" BORDER=\"1\" CELLBORDER=\"0\" CELLSPACING=\"0\" COLOR=\"#004200AA\">\n    <TR>\n      <TD COLSPAN=\"1\" BGCOLOR=\"#006400FF\" BORDER=\"0\"><FONT COLOR=\"#FFFFFF\" POINT-SIZE=\"18\">tbl_project_roles<\/FONT>\n<\/TD>\n    <\/TR>\n    <TR>\n      <TD COLSPAN=\"1\" BGCOLOR=\"#A5C8A5FF\" BORDER=\"0\" COLOR=\"#000000\"><FONT COLSPAN=\"1\" BGCOLOR=\"#A5C8A5FF\" BORDER=\"0\" COLOR=\"#000000\" POINT-SIZE=\"12\">Details of roles within a project<\/FONT>\n<\/TD>\n    <\/TR>\n    <TR>\n      <TD ALIGN=\"LEFT\" BGCOLOR=\"#CCE0CCFF\" PORT=\"id\"><FONT POINT-SIZE=\"15\"><U>id<\/U><\/FONT><\/TD>\n    <\/TR>\n    <TR>\n      <TD ALIGN=\"LEFT\" BGCOLOR=\"#CCE0CCFF\" PORT=\"project_id\"><FONT POINT-SIZE=\"15\"><I>project_id<\/I><\/FONT><\/TD>\n    <\/TR>\n    <TR>\n      <TD ALIGN=\"LEFT\" BGCOLOR=\"#CCE0CCFF\" PORT=\"staff_id\"><FONT POINT-SIZE=\"15\"><I>staff_id<\/I><\/FONT><\/TD>\n    <\/TR>\n    <TR>\n      <TD ALIGN=\"LEFT\" BGCOLOR=\"#CCE0CCFF\" PORT=\"role_lku\"><FONT POINT-SIZE=\"15\"><I>role_lku<\/I><\/FONT><\/TD>\n    <\/TR>\n    <TR>\n      <TD ALIGN=\"LEFT\" BGCOLOR=\"#CCE0CCFF\"><FONT POINT-SIZE=\"15\">role_details<\/FONT><\/TD>\n    <\/TR>\n    <TR>\n      <TD ALIGN=\"LEFT\" BGCOLOR=\"#CCE0CCFF\"><FONT POINT-SIZE=\"15\">planned_start_date<\/FONT><\/TD>\n    <\/TR>\n    <TR>\n      <TD ALIGN=\"LEFT\" BGCOLOR=\"#CCE0CCFF\"><FONT POINT-SIZE=\"15\">planned_end_date<\/FONT><\/TD>\n    <\/TR>\n    <TR>\n      <TD ALIGN=\"LEFT\" BGCOLOR=\"#CCE0CCFF\" PORT=\"role_status_lku\"><FONT POINT-SIZE=\"15\"><I>role_status_lku<\/I><\/FONT><\/TD>\n    <\/TR>\n    <TR>\n      <TD ALIGN=\"LEFT\" BGCOLOR=\"#CCE0CCFF\" PORT=\"work_intensity_lku\"><FONT POINT-SIZE=\"15\"><I>work_intensity_lku<\/I><\/FONT><\/TD>\n    <\/TR>\n  <\/TABLE>>, shape = \"plaintext\"] \n\n\"lku_project_link_type\":\"project_link_type_lku\"->\"tbl_project_links\":\"project_link_type_lku\" [id=\"lku_project_link_type_1\", style=\"dashed\"]\n\"tbl_project\":\"id\"->\"tbl_project_links\":\"project_id\" [id=\"tbl_project_1\", style=\"dashed\"]\n\"lku_staff\":\"staff_id\"->\"tbl_activity_plan\":\"activity_plan_lead_id\" [id=\"lku_staff_1\", style=\"dashed\"]\n\"tbl_activity_plan\":\"id\"->\"tbl_component\":\"activity_plan_id\" [id=\"tbl_activity_plan_1\", style=\"dashed\"]\n\"lku_project_status\":\"project_status_lku\"->\"tbl_project\":\"project_status_lku\" [id=\"lku_project_status_1\", style=\"dashed\"]\n\"tbl_component\":\"id\"->\"tbl_project\":\"component_id\" [id=\"tbl_component_1\", style=\"dashed\"]\n\"tbl_project\":\"id\"->\"tbl_project_history\":\"project_id\" [id=\"tbl_project_2\", style=\"dashed\"]\n\"lku_role\":\"role_lku\"->\"tbl_project_roles\":\"role_lku\" [id=\"lku_role_1\", style=\"dashed\"]\n\"lku_staff\":\"staff_id\"->\"tbl_project_roles\":\"staff_id\" [id=\"lku_staff_2\", style=\"dashed\"]\n\"tbl_project\":\"id\"->\"tbl_project_roles\":\"project_id\" [id=\"tbl_project_3\", style=\"dashed\"]\n\"lku_role_status\":\"role_status_lku\"->\"tbl_project_roles\":\"role_status_lku\" [id=\"lku_role_status_1\", style=\"dashed\"]\n\"lku_work_intensity\":\"work_intensity_lku\"->\"tbl_project_roles\":\"work_intensity_lku\" [id=\"lku_work_intensity_1\", style=\"dashed\"]\n}","config":{"engine":null,"options":null}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</section>
+<section id="table-descriptions" class="level2">
+<h2 class="anchored" data-anchor-id="table-descriptions">Table Descriptions</h2>
+<p>The table below provides basic information about all the tables in the adminstrative schema.</p>
+<div class="cell-output-display">
+<table class="table">
+<colgroup>
+<col style="width: 27%">
+<col style="width: 72%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">table_name</th>
+<th style="text-align: left;">table_description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">lku_project_link_type</td>
+<td style="text-align: left;">Descriptions for values in the project_link_type_lku field</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">lku_project_status</td>
+<td style="text-align: left;">Descriptions for values in the project_status_lku field</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">lku_role</td>
+<td style="text-align: left;">Descriptions for values in the role_lku field</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">lku_staff</td>
+<td style="text-align: left;">Look-up table containing PEP staff</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">tbl_project_links</td>
+<td style="text-align: left;">Relevant links for a project</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">lku_role_status</td>
+<td style="text-align: left;">Descriptions for values in the role_status_lku field</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">lku_work_intensity</td>
+<td style="text-align: left;">Descriptions for values in the work_intensity_lku field</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">tbl_activity_plan</td>
+<td style="text-align: left;">PEP Activity Plans</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">tbl_component</td>
+<td style="text-align: left;">Components associated with PEP Activity Plans</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">tbl_project</td>
+<td style="text-align: left;">Projects within PEP Activity Plans and components</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">tbl_project_history</td>
+<td style="text-align: left;">Log of user-detailed actions within a project</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">tbl_project_roles</td>
+<td style="text-align: left;">Details of roles within a project</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="field-descriptions-by-table" class="level2">
+<h2 class="anchored" data-anchor-id="field-descriptions-by-table">Field Descriptions by Table</h2>
+<section id="lku_project_link_type" class="level3">
+<h3 class="anchored" data-anchor-id="lku_project_link_type">lku_project_link_type</h3>
+<table class="table">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 32%">
+<col style="width: 15%">
+<col style="width: 24%">
+<col style="width: 12%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">field_name</th>
+<th style="text-align: left;">field_description</th>
+<th style="text-align: left;">field_type</th>
+<th style="text-align: left;">null_missing_data</th>
+<th style="text-align: left;">other_information</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">project_link_type_lku</td>
+<td style="text-align: left;">Coded values for project link types</td>
+<td style="text-align: left;">character varying (10)</td>
+<td style="text-align: left;">Do not expect missing or NULL values</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">project_link_type</td>
+<td style="text-align: left;">Description of project link type look-up values</td>
+<td style="text-align: left;">character varying (50)</td>
+<td style="text-align: left;">Do not expect missing or NULL values</td>
+<td style="text-align: left;">NA</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="tbl_project_roles" class="level3">
+<h3 class="anchored" data-anchor-id="tbl_project_roles">tbl_project_roles</h3>
+<table class="table">
+<colgroup>
+<col style="width: 8%">
+<col style="width: 32%">
+<col style="width: 10%">
+<col style="width: 16%">
+<col style="width: 32%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">field_name</th>
+<th style="text-align: left;">field_description</th>
+<th style="text-align: left;">field_type</th>
+<th style="text-align: left;">null_missing_data</th>
+<th style="text-align: left;">other_information</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">id</td>
+<td style="text-align: left;">Unique identifier for each record in the table</td>
+<td style="text-align: left;">integer</td>
+<td style="text-align: left;">Do not expect missing or NULL values</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">project_id</td>
+<td style="text-align: left;">Relates each role to a corresponding project</td>
+<td style="text-align: left;">integer</td>
+<td style="text-align: left;">Do not expect missing or NULL values</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">staff_id</td>
+<td style="text-align: left;">Relates a PEP staff member to each particular role</td>
+<td style="text-align: left;">integer</td>
+<td style="text-align: left;">Do not expect missing or NULL values</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">role_lku</td>
+<td style="text-align: left;">Defines the assigned role</td>
+<td style="text-align: left;">character varying (10)</td>
+<td style="text-align: left;">Do not expect missing or NULL values</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">role_details</td>
+<td style="text-align: left;">User-entered additional information about the role</td>
+<td style="text-align: left;">character varying (100)</td>
+<td style="text-align: left;">Do not expect missing or NULL values</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">planned_start_date</td>
+<td style="text-align: left;">Expected start date for the work</td>
+<td style="text-align: left;">date</td>
+<td style="text-align: left;">Do not expect missing or NULL values</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">planned_end_date</td>
+<td style="text-align: left;">Expected end date for the work</td>
+<td style="text-align: left;">date</td>
+<td style="text-align: left;">Do not expect missing or NULL values</td>
+<td style="text-align: left;">Assigned 12/31/2050 when the work is on-going without an expected end date</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">role_status_lku</td>
+<td style="text-align: left;">Defines the status of the role (e.g.&nbsp;planned, on-going, completed)</td>
+<td style="text-align: left;">character varying (10)</td>
+<td style="text-align: left;">Do not expect missing or NULL values</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">work_intensity_lku</td>
+<td style="text-align: left;">Defines the expected time requirements for the role (e.g.&nbsp;low, medium, high)</td>
+<td style="text-align: left;">character varying (10)</td>
+<td style="text-align: left;">Do not expect missing or NULL values</td>
+<td style="text-align: left;">NA</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

@@ -3,8 +3,13 @@
 
 # Variables ------------------------------------------------------
 schema_of_interest <- 
+  'surv_jobss_kamera'
+  #'surv_jobss_detections'
   #'administrative'
-  'acoustics'
+  #'acoustics'
+
+schema_db <-
+  'surv_jobss'
 
 # Create functions -----------------------------------------------
 # Function to install packages needed
@@ -31,20 +36,36 @@ con <- RPostgreSQL::dbConnect(PostgreSQL(),
                               password = Sys.getenv("admin_pw"))
 
 # Get tables, foreign keys, and table descriptions from database
-tables <- dm::dm_from_con(con, schema = schema_of_interest) %>% 
-  dm::dm_select_tbl(starts_with("lku") | starts_with("geo") | starts_with("tbl"))
 
 foreign_keys <- RPostgreSQL::dbGetQuery(con, "SELECT * FROM database_meta.tbl_foreign_keys") %>%
-  filter(schema == schema_of_interest)
+  filter(schema_erd == schema_of_interest) %>%
+  filter(include_in_erd == 'Y')
 
 table_descriptions <- RPostgreSQL::dbGetQuery(con, "SELECT * FROM database_meta.tbl_table_descriptions") %>%
-  filter(schema == schema_of_interest) 
+  filter(schema_erd == schema_of_interest) %>%
+  filter(include_in_erd == 'Y')
+
+tables <- dm::dm_from_con(con, schema = schema_db) %>% 
+  # dm::dm_select_tbl(tables_2diagram$tablename)
+  dm::dm_select_tbl(table_descriptions$table_name)
+
+RPostgreSQL::dbDisconnect(con)
+
+# Clean up geo_images_meta tables for better appearance in diagram
+if ("geo_images_meta" %in% names(tables) == TRUE) {
+  tables <- tables %>%
+    dm::dm_select(geo_images_meta, !(starts_with("evt"))) %>%
+    dm::dm_select(geo_images_meta, !(starts_with("uv"))) %>%
+    dm::dm_select(geo_images_meta, !(starts_with("rgb"))) %>%
+    dm::dm_select(geo_images_meta, !(starts_with("ir"))) %>%
+    dm::dm_select(geo_images_meta, !(starts_with("ins"))) 
+}
 
 # Assign foreign keys to tables dm
 for (i in 1:nrow(foreign_keys)) {
   tables <- tables %>%
     dm::dm_add_fk(table = !!foreign_keys$table_name_2[i], columns = !!foreign_keys$field_name_2[i],
-                ref_table = !!foreign_keys$table_name_1[i], ref_columns = !!foreign_keys$field_name_1[i]) 
+                  ref_table = !!foreign_keys$table_name_1[i], ref_columns = !!foreign_keys$field_name_1[i]) 
 }
 
 # Assign table descriptions to tables dm
@@ -61,7 +82,7 @@ tables_drawn <- tables %>%
                     darkblue = starts_with("geo"), 
                     darkgreen = starts_with("tbl")) %>%
   dm::dm_draw(view_type = "all",
-              rankdir = "LR",
+              rankdir = "TB",
               graph_name = paste0("Database Diagram: ", schema_of_interest, " schema"),
               font_size = c(header = 18L, table_description = 12L, column = 15L))
 
